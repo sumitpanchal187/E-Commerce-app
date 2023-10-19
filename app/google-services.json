@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1057666171653",
+    "project_id": "fir-3fac1",
+    "storage_bucket": "fir-3fac1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1057666171653:android:5d13c3543e8b2d2af2ed6c",
+        "android_client_info": {
+          "package_name": "com.example.ecommerce"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLB1H8XwgdBjoOwjuDOvC_aOdSJLVJTXE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

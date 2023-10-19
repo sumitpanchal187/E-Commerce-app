@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginHorizontal="10dp"
+    android:background="@drawable/custom_edit_text"
+    android:padding="16dp"
+    tools:context=".Activity.AddressActivity">
+
+    <TextView
+        android:id="@+id/addressDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address Detail"
+        android:textAllCaps="true"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+
+        android:textAlignment="center"
+
+        />
+
+    <EditText
+        android:id="@+id/editTextStreet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addressDetail"
+        android:layout_marginTop="7dp"
+        android:hint="Street Address"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editTextCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextStreet"
+        android:layout_marginTop="16dp"
+        android:hint="City"
+        android:inputType="text" />
+
+
+    <EditText
+        android:id="@+id/editTextState"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextCity"
+        android:layout_marginTop="16dp"
+        android:hint="State"
+        android:inputType="text" />
+    <EditText
+        android:id="@+id/editTextCountry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextState"
+        android:layout_marginTop="16dp"
+        android:hint="Country"
+        android:inputType="text" />
+    <EditText
+        android:id="@+id/editTextPin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextCountry"
+        android:layout_marginTop="16dp"
+        android:hint="Pin Code"
+        android:maxLength="6"
+        android:inputType="number" />
+    <Button
+        android:id="@+id/buttonSaveAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextPin"
+        android:textSize="17dp"
+        android:layout_marginTop="32dp"
+        android:text="Save Address" />
+</RelativeLayout>

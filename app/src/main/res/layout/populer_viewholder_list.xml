@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="162dp"
+    android:layout_height="240dp"
+    android:layout_margin="12dp"
+    android:background="@drawable/populer_viewholder_background"
+    android:elevation="3dp">
+
+    <ImageView
+        android:layout_width="160dp"
+        android:layout_height="163dp"
+        android:layout_marginTop="2dp"
+        android:id="@+id/gridviewmainimage"
+        android:src="@drawable/img_18"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/wllike2"-->
+<!--        android:layout_width="25dp"-->
+<!--        android:layout_height="25dp"-->
+<!--        android:background="@drawable/white_ovel_background"-->
+<!--        android:padding="4dp"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:layout_marginRight="5dp"-->
+<!--        android:scaleType="fitCenter"-->
+<!--        android:src="@drawable/love"-->
+
+<!--        app:layout_constraintEnd_toEndOf="@+id/gridviewmainimage"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/gridviewmainimage" />-->
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="@drawable/white_background2"
+        android:paddingBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/populertitletext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="6dp"
+        android:text="Title"
+
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/feetext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$ 199"
+        android:layout_marginBottom="7dp"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/populertitletext"
+        app:layout_constraintTop_toBottomOf="@+id/populertitletext" />
+
+    <ImageView
+        android:id="@+id/piclogo2"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/img_19"
+        app:layout_constraintBottom_toBottomOf="@+id/feetext"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/feetext" />
+
+    <TextView
+        android:id="@+id/scoretext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="51"
+        app:layout_constraintBottom_toBottomOf="@+id/feetext"
+        app:layout_constraintEnd_toStartOf="@+id/piclogo2"
+        app:layout_constraintTop_toTopOf="@+id/feetext"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--
+
+
+    />
+
+-->

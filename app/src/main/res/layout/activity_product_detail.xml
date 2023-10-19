@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/backlinearca"
+        android:orientation="vertical">
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/backbtnLogo"
+                    android:layout_width="47dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="8dp"
+                    android:src="@drawable/img_10"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <ImageView
+                    android:id="@+id/savebtnLogo"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:padding="9dp"
+                    android:background="@drawable/white_ovel_background"
+                    android:layout_marginRight="10dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/backbtnLogo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/backbtnLogo"
+                    android:src="@drawable/love"
+                    />
+
+                <ImageView
+                    android:id="@+id/sharebtnlogo"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="0dp"
+                    android:padding="12dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/backbtnLogo"
+                    app:layout_constraintEnd_toStartOf="@+id/savebtnLogo"
+                    app:layout_constraintTop_toTopOf="@+id/backbtnLogo"
+                    android:src="@drawable/img_53"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/backlinearca">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/img_51"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/searchLogo"
+
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:id="@+id/titleText"
+                android:layout_marginTop="15dp"
+                android:text="OK QUEST "
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:id="@+id/desctext"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:text="Women Regular Fit Printed Lapel Collar Casual Shirt"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="97dp"
+                android:layout_height="36dp"
+                android:background="@drawable/addtocart_background"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                >
+
+                <ImageButton
+                    android:id="@+id/pluscart"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginRight="7dp"
+                    android:background="@drawable/white_ovel_background"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView27"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+"
+                    android:textSize="27dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/pluscart"
+                    app:layout_constraintEnd_toEndOf="@+id/pluscart"
+                    app:layout_constraintStart_toStartOf="@+id/pluscart"
+                    app:layout_constraintTop_toTopOf="@+id/pluscart" />
+
+                <TextView
+                    android:id="@+id/noofitem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:textSize="21dp"
+                    android:textStyle="bold"
+                    android:layout_marginRight="10dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/pluscart"
+                    app:layout_constraintEnd_toStartOf="@+id/pluscart"
+                    app:layout_constraintTop_toTopOf="@+id/pluscart" />
+
+                <ImageButton
+                    android:id="@+id/minuscart"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/white_ovel_background"
+                    app:layout_constraintBottom_toBottomOf="@+id/pluscart"
+                    app:layout_constraintEnd_toStartOf="@+id/noofitem"
+                    app:layout_constraintTop_toTopOf="@+id/noofitem" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:textSize="30dp"
+
+                    app:layout_constraintBottom_toBottomOf="@+id/minuscart"
+                    app:layout_constraintEnd_toEndOf="@+id/minuscart"
+                    app:layout_constraintStart_toStartOf="@+id/minuscart"
+                    app:layout_constraintTop_toTopOf="@+id/minuscart" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                android:text="Available in stock"
+
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:text="Size"
+                android:layout_marginTop="10dp"
+                style="@style/textStyleBold"
+                android:textColor="@color/black"
+                android:textSize="25dp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="S"
+                    android:id="@+id/sizeS"
+                    android:layout_marginLeft="20dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/addtocart_background"
+                    android:textSize="30dp"/>
+
+ <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/sizeM"
+                    android:text="M"
+                    android:layout_marginLeft="20dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/addtocart_background"
+                    android:textSize="29dp"/>
+
+ <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="L"
+                    android:layout_marginLeft="20dp"
+                    android:textAlignment="center"
+                    android:id="@+id/sizeL"
+
+                    android:background="@drawable/addtocart_background"
+                    android:textSize="30dp"/>
+
+ <TextView
+                    android:layout_width="45dp"
+                    android:layout_height="40dp"
+                    android:text="XL"
+                    android:id="@+id/sizeXL"
+
+                    android:layout_marginLeft="20dp"
+                    android:textAlignment="center"
+                    android:background="@drawable/addtocart_background"
+                    android:textSize="30dp"/>
+
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="10dp"
+                android:text="Color"
+                style="@style/textStyleBold"
+                android:textColor="@color/black"
+                android:textSize="25dp" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:layout_width="40dp"
+                    android:id="@+id/color1"
+                    android:layout_height="40dp"
+                    android:background="@drawable/custom_edit_text"
+                    android:backgroundTint="@color/black"
+                    android:layout_marginLeft="20dp"
+
+                    />
+              <ImageButton
+                    android:layout_width="40dp"
+                  android:id="@+id/color2"
+                    android:layout_height="40dp"
+                    android:background="@drawable/custom_edit_text"
+                    android:backgroundTint="@color/BlueViolet"
+                    android:layout_marginLeft="20dp"
+
+                    />
+              <ImageButton
+                    android:layout_width="40dp"
+                  android:id="@+id/color3"
+                    android:layout_height="40dp"
+                    android:background="@drawable/custom_edit_text"
+                    android:backgroundTint="@color/lavender"
+                    android:layout_marginLeft="20dp"
+
+                    />
+              <ImageButton
+                    android:layout_width="40dp"
+                  android:id="@+id/color4"
+                    android:layout_height="40dp"
+                    android:background="@drawable/custom_edit_text"
+                    android:backgroundTint="@color/OrangeRed"
+                    android:layout_marginLeft="20dp"
+
+                    />
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/img_13" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/ratingText"
+                    android:layout_marginTop="10dp"
+                    android:text="4.6"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Rating"
+                    android:textColor="@color/black"
+
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:padding="7dp"
+                    android:src="@drawable/img_14" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="12"
+                    android:id="@+id/reviewText"
+                    android:textColor="@color/black"
+
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+
+                    android:text="Reviews"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <View
+                    android:id="@+id/viewtext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:background="@color/DarkGray" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                style="@style/textStyleBold"
+                android:textSize="25dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/descriptionText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="7dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="20dp"
+                android:justificationMode="inter_word"
+                android:text="KONG Puppy toy is customized for a growing puppy’s baby teeth, the unique, natural rubber formula is the most gentle within the KONG rubber toy line.KONG Puppy toy is customized for a growing puppy’s baby teeth, the unique, natural rubber formula is the most gentle within the KONG rubber toy line. Designed to meet the needs of a puppy’s 28-baby teeth, it helps teach appropriate chewing behavior while offering enrichment and satisfying a younger pup’s instinctual needs. it helps teach appropriate chewing behavior while offering enrichment and satisfying a younger pup’s instinctual needs. it helps teach appropriate chewing behavior while offering enrichment and satisfying a younger pup’s instinctual needs. "
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/descriptionText2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="150dp"
+
+                android:justificationMode="inter_word"
+                android:text="KONG Puppy toy is customized for a growing puppy’s baby teeth, the unique, natural rubber formula is the most gentle within the KONG rubber toy line.KONG Puppy toy is customized for a growing puppy’s baby teeth, the unique, natural rubber formula is the most gentle within the KONG rubber toy line. Designed to meet the needs of a puppy’s 28-baby teeth, it helps teach appropriate chewing behavior while offering enrichment and satisfying a younger pup’s instinctual needs. it helps teach appropriate chewing behavior while offering enrichment and satisfying a younger pup’s instinctual needs. it helps teach appropriate chewing behavior while offering enrichment and satisfying a younger pup’s instinctual needs. "
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₹ 1999"
+                android:id="@+id/priceCart"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/black"/>
+
+        <Button
+            android:id="@+id/addtocart2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="5dp"
+            android:backgroundTint="@color/lavender"
+            android:text="Add To Cart"
+
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:cornerRadius="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="16dp" />
+        </LinearLayout>
+
+
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
