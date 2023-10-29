@@ -15,16 +15,31 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.example.ecommerce.Adapter.CategoryAdapter;
 import com.example.ecommerce.Adapter.populerListAdapter;
 import com.example.ecommerce.Domain.populerDomain;
+import com.example.ecommerce.Helper.Constants;
 import com.example.ecommerce.R;
+import com.example.ecommerce.databinding.ActivityHomePageBinding;
+import com.example.ecommerce.models.Category;
 import com.google.android.material.navigation.NavigationView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -34,7 +49,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     private RecyclerView recyclerviewpopuler;
     private ImageView profile;
     private ImageView wishList;
-    private ImageView cartlg, pcLogo, phoneLogo, headPhLg, gamingLogo, viewAllLogo, homeLogo, notibtn;
+    private ImageView cartlg, homeLogo, notibtn;
     private ConstraintLayout searchView;
     private EditText searchedit;
     private ImageView clearButton;
@@ -43,13 +58,18 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
-
+    ActivityHomePageBinding binding;
+    CategoryAdapter categoryAdapter;
+    ArrayList<Category> categories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
+//        setContentView(R.layout.activity_home_page);
 
+        binding = ActivityHomePageBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        initCategories();
 
         drawerLayout = findViewById(R.id.drawwerlayout);
         navigationView = findViewById(R.id.navigation_view);
@@ -78,7 +98,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
                 R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setNavigationItemSelectedListener((NavigationView.OnNavigationItemSelectedListener) this);
         navigationView.setCheckedItem(R.id.navigation_home);
 
         notibtn = findViewById(R.id.imageView9);
@@ -127,12 +147,7 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
         profile = findViewById(R.id.profilelogox);
         wishList = findViewById(R.id.wishList2);
         cartlg = findViewById(R.id.cartlogo);
-        pcLogo = findViewById(R.id.pcimage);
         homeLogo = findViewById(R.id.homebutton);
-        phoneLogo = findViewById(R.id.phonelogo);
-        headPhLg = findViewById(R.id.headphonelogo);
-        gamingLogo = findViewById(R.id.gaminglogo);
-        viewAllLogo = findViewById(R.id.Viewalllogo);
 
         initRecyclerView();
 
@@ -172,45 +187,73 @@ public class HomePage extends AppCompatActivity implements NavigationView.OnNavi
                 startActivity(new Intent(HomePage.this, HomePage.class));
             }
         });
-
-        pcLogo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomePage.this, ProfileActivity.class));
-            }
-        });
-
-        phoneLogo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomePage.this, ProductDetailActivity.class));
-            }
-        });
-
-        headPhLg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomePage.this, ProfileActivity.class));
-            }
-        });
-
-        gamingLogo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomePage.this, ProductDetailActivity.class));
-            }
-        });
-
-        viewAllLogo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomePage.this, ProductDetailActivity.class));
-            }
-        });
-
     }
+    void getCategories() {
+        RequestQueue queue = Volley.newRequestQueue(this);
 
+        StringRequest request = new StringRequest(Request.Method.GET, Constants.GET_CATEGORIES_URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    // Parse the JSON data
+                    JSONObject jsonData = new JSONObject(response); // Replace yourJsonString with your JSON data
 
+                    // Check the status
+                    String status = jsonData.getString("status");
+                    if (status.equals("success")) {
+                        JSONArray categoriesArray = jsonData.getJSONArray("categories");
+                        for (int i = 0; i < categoriesArray.length(); i++) {
+                            JSONObject categoryObject = categoriesArray.getJSONObject(i);
+
+                            // Extract data from the JSON object
+                            String name = categoryObject.getString("name");
+                            String icon = Constants.CATEGORIES_IMAGE_URL + categoryObject.getString("icon");
+                            String description = categoryObject.getString("brief");
+                            int id = categoryObject.getInt("id");
+
+                            // Create a Category object and add it to the list
+                            Category category = new Category(name, icon, description, id);
+                            categories.add(category);
+                        }
+
+                        // Notify the adapter of the data change
+                        categoryAdapter.notifyDataSetChanged();
+                    } else {
+                        // Handle the case when status is not "success"
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    // Handle JSON parsing error
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        queue.add(request);
+    }
+    void initCategories() {
+        categories = new ArrayList<>();
+        categories.add(new Category("Men's","img_1","sumit panchal",1));
+        categories.add(new Category("Womes's","img_2","sumit panchal",1));
+        categories.add(new Category("Kid's","img_3","sumit panchal",1));
+        categories.add(new Category("Electronics","img_4","sumit panchal",1));
+        categories.add(new Category("Beauty","img_5","sumit panchal",1));
+        categories.add(new Category("Home & More","img_6","sumit panchal",1));
+        categories.add(new Category("Grocery","img_7","sumit panchal",1));
+        categories.add(new Category("Sports","img_8","sumit panchal",1));
+        categoryAdapter = new CategoryAdapter(this, categories);
+
+//        getCategories();
+
+        GridLayoutManager layoutManager = new GridLayoutManager(this, 4);
+        binding.categoryList.setLayoutManager(layoutManager);
+        binding.categoryList.setAdapter(categoryAdapter);
+    }
     private void initRecyclerView() {
         ArrayList<com.example.ecommerce.Domain.populerDomain> items = new ArrayList<>();
         items.add(new populerDomain(1, "Women's Tshirt", "Sumit Panchal", 5, "qwerqwr", 50, 4.8, 500, 1499, 1));
