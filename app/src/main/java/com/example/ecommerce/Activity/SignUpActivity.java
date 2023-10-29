@@ -1,11 +1,6 @@
 package com.example.ecommerce.Activity;
 
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.usage.NetworkStats;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +9,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ecommerce.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -29,7 +28,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.ktx.Firebase;
 
 import java.util.HashMap;
 
@@ -37,7 +35,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     private FirebaseAuth auth ;
     private EditText signupEmail,signupPassword ;
-    private TextView loginRedirectedText ;
+    private TextView loginRedirectedText ,skipbutton;
 
     ImageView googleAuth;
     FirebaseDatabase database ;
@@ -57,7 +55,14 @@ public class SignUpActivity extends AppCompatActivity {
         googleAuth = findViewById(R.id.googlelogobtn);
 
 
+        skipbutton = findViewById(R.id.skipbtnsignup);
 
+        skipbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SignUpActivity.this,HomePage.class));
+            }
+        });
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)

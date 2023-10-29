@@ -15,9 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Ecommerce"
         tools:targetApi="31">
-        <activity
-            android:name=".Activity.MainActivity2"
-            android:exported="false" />
 
         <activity
             android:name=".Activity.SettingActivity"
@@ -37,18 +34,16 @@
         <activity
             android:name=".Activity.HomePage"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Activity.populer_viewholder"
             android:exported="true" />
         <activity
             android:name=".Activity.LoginActivity"
-            android:exported="true" />
+            android:exported="true" >
+
+        </activity>
         <activity
             android:name=".Activity.NotificationActivity"
             android:exported="true" />
@@ -69,7 +64,13 @@
             android:exported="true" />
         <activity
             android:name=".Activity.MainActivity"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

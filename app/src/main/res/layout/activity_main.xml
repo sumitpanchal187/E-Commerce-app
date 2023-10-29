@@ -27,11 +27,11 @@
         android:layout_below="@+id/logo"
         android:layout_marginTop="5sp"
         android:layout_centerHorizontal="true"
-        android:text="Amazon"
+        android:text="E-Commerce"
         android:textStyle="bold"
         android:id="@+id/amazon"
         android:textColor="@color/Gray"
-        android:textSize="50dp" />
+        android:textSize="45dp" />
 
 
 </RelativeLayout>
